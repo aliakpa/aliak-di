@@ -1,9 +1,6 @@
 package com.aliak.aliakdi;
 
-import com.aliak.aliakdi.controllers.ConstructorInjectedController;
-import com.aliak.aliakdi.controllers.MyController;
-import com.aliak.aliakdi.controllers.PropertyInjectedController;
-import com.aliak.aliakdi.controllers.SetterInjectedController;
+import com.aliak.aliakdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,6 +11,10 @@ public class AliakDiApplication {
 	public static void main(String[] args) {
 
 		ApplicationContext ctx = SpringApplication.run((AliakDiApplication.class));
+
+		I18NController i18NController = (I18NController) ctx.getBean("i18NController");
+
+		System.out.println(i18NController.sayHello());
 
 		MyController myController = (MyController) ctx.getBean("myController");
 
